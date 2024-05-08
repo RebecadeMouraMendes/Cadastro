@@ -1,8 +1,11 @@
-package jtable;
+ppackage jtable;
+ 
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import javax.swing.JFrame;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.*;
 
 public class JTable extends JFrame {
 
@@ -18,13 +21,23 @@ public class JTable extends JFrame {
         {"Copernicus","545","Masculino"},
     };
     
+    
     public JTable(){
         setLayout(new FlowLayout());
         setSize(new Dimension(600,200));
+        setLocationRelativeTo(null);
+        setTitle("Exemplo JTable");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
+        table = new JTable(dados,colunas);
+        table.setPreferredScrollableViewportSize(new Dimension(500,100));
+        table.setFillsViewportHeight(true);
+        
+        JScrollPane scrollPane = new JScrollPane(table);
+        add(scrollPane);
         
     }
     public static void main(String[] args) {
-        
+        new JTable().setVisible(true);
     }
-    
 }
