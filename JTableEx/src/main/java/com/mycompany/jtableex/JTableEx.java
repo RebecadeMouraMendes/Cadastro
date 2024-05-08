@@ -38,6 +38,6 @@ public class JTableEx extends JFrame {
         
     }
     public static void main(String[] args) {
-        new JTable().setVisible(true);
+        new JTableEx().setVisible(true);
     }
 }
