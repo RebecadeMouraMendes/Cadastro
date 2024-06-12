@@ -1,6 +1,7 @@
 package radiobutton;
 
 import java.awt.Color;
+import java.awt.Font;
 
 public class radio extends javax.swing.JFrame {
 
@@ -8,6 +9,8 @@ public class radio extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         texto.setVisible(false);
+        estilo = Font.PLAIN;
+        tamanho = 12;
     }
 
     /**
@@ -20,6 +23,7 @@ public class radio extends javax.swing.JFrame {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
+        buttonGroup2 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         rotulo1 = new javax.swing.JLabel();
         rotulo2 = new javax.swing.JLabel();
@@ -28,13 +32,13 @@ public class radio extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         texto1 = new javax.swing.JTextField();
         lista = new javax.swing.JComboBox<>();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        jCheckBox2 = new javax.swing.JCheckBox();
-        jCheckBox3 = new javax.swing.JCheckBox();
+        negrito = new javax.swing.JCheckBox();
+        italico = new javax.swing.JCheckBox();
+        normal = new javax.swing.JCheckBox();
         jRadioButton1 = new javax.swing.JRadioButton();
         jRadioButton2 = new javax.swing.JRadioButton();
         jRadioButton3 = new javax.swing.JRadioButton();
-        jCheckBox4 = new javax.swing.JCheckBox();
+        negritoitalico = new javax.swing.JCheckBox();
         jRadioButton4 = new javax.swing.JRadioButton();
         texto = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
@@ -63,16 +67,31 @@ public class radio extends javax.swing.JFrame {
             }
         });
 
-        jCheckBox1.setText("Negrito");
-        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+        buttonGroup2.add(negrito);
+        negrito.setFont(new java.awt.Font("Liberation Sans", 1, 15)); // NOI18N
+        negrito.setText("Negrito");
+        negrito.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox1ActionPerformed(evt);
+                negritoActionPerformed(evt);
             }
         });
 
-        jCheckBox2.setText("Itálico");
+        buttonGroup2.add(italico);
+        italico.setFont(new java.awt.Font("Liberation Sans", 2, 15)); // NOI18N
+        italico.setText("Itálico");
+        italico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                italicoActionPerformed(evt);
+            }
+        });
 
-        jCheckBox3.setText("Normal");
+        buttonGroup2.add(normal);
+        normal.setText("Normal");
+        normal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                normalActionPerformed(evt);
+            }
+        });
 
         buttonGroup1.add(jRadioButton1);
         jRadioButton1.setText("12");
@@ -98,7 +117,14 @@ public class radio extends javax.swing.JFrame {
             }
         });
 
-        jCheckBox4.setText("Negrito itálico");
+        buttonGroup2.add(negritoitalico);
+        negritoitalico.setFont(new java.awt.Font("Liberation Sans", 3, 15)); // NOI18N
+        negritoitalico.setText("Negrito itálico");
+        negritoitalico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                negritoitalicoActionPerformed(evt);
+            }
+        });
 
         buttonGroup1.add(jRadioButton4);
         jRadioButton4.setText("18");
@@ -122,6 +148,7 @@ public class radio extends javax.swing.JFrame {
         );
 
         jButton1.setText("Enviar");
+        jButton1.setToolTipText("Envie o texto para fazer a edição");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -146,10 +173,10 @@ public class radio extends javax.swing.JFrame {
                                 .addGap(46, 46, 46)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(rotulo2)
-                                    .addComponent(jCheckBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jCheckBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jCheckBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jCheckBox4)))
+                                    .addComponent(normal, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(negrito, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(italico, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(negritoitalico)))
                             .addComponent(texto1, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -162,9 +189,9 @@ public class radio extends javax.swing.JFrame {
                                     .addComponent(jRadioButton3)
                                     .addComponent(jRadioButton4)))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jButton1)))))
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addContainerGap(31, Short.MAX_VALUE))
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(156, 156, 156)
@@ -193,13 +220,13 @@ public class radio extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jCheckBox1))
+                            .addComponent(negrito))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jCheckBox2)
+                        .addComponent(italico)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jCheckBox3)
+                        .addComponent(normal)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jCheckBox4)
+                        .addComponent(negritoitalico)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(texto))
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -227,21 +254,24 @@ public class radio extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
-        
-    }//GEN-LAST:event_jCheckBox1ActionPerformed
     String txt;
-    Integer estilo, tamanho;
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    Integer estilo,tamanho;
+    private void negritoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_negritoActionPerformed
+       estilo = Font.BOLD;
+       italico.setSelected(false);
+       normal.setSelected(false);
+       texto.setFont(new Font("",estilo,tamanho));
+    }//GEN-LAST:event_negritoActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         txt = texto1.getText();
         texto.setText(txt);
         texto.setVisible(true);
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void listaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listaActionPerformed
-        if(lista.getSelectedItem().toString() == "Sem Cor"){
+        if(lista.getSelectedItem().toString() == "Sem cor"){
         texto.setForeground(Color.black);
         }
         if(lista.getSelectedItem().toString() == "Vermelho"){
@@ -253,7 +283,7 @@ public class radio extends javax.swing.JFrame {
         if(lista.getSelectedItem().toString() == "Verde"){
         texto.setForeground(Color.green);
         }
-        if(lista.getSelectedItem().toString() == "Amarelo"){
+        if(lista.getSelectedItem().toString() == "Amarelo "){
         texto.setForeground(Color.yellow);
         }
         if(lista.getSelectedItem().toString() == "Branco"){
@@ -266,24 +296,44 @@ public class radio extends javax.swing.JFrame {
 
     private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
         tamanho = 12;
-        texto.setFont("",estilo,tamanho);
+        texto.setFont(new Font("",estilo,tamanho));
     }//GEN-LAST:event_jRadioButton1ActionPerformed
 
     private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
-        // TODO add your handling code here:
+        tamanho = 14;
+        texto.setFont(new Font("",estilo,tamanho));
     }//GEN-LAST:event_jRadioButton2ActionPerformed
 
     private void jRadioButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton3ActionPerformed
-        // TODO add your handling code here:
+        tamanho = 16;
+        texto.setFont(new Font("",estilo,tamanho));
     }//GEN-LAST:event_jRadioButton3ActionPerformed
 
     private void jRadioButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton4ActionPerformed
-        // TODO add your handling code here:
+        tamanho = 18;
+        texto.setFont(new Font("",estilo,tamanho));
     }//GEN-LAST:event_jRadioButton4ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+    private void italicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_italicoActionPerformed
+       estilo = Font.ITALIC;
+       negrito.setSelected(false);
+       normal.setSelected(false);
+       texto.setFont(new Font("",estilo,tamanho));
+    }//GEN-LAST:event_italicoActionPerformed
+
+    private void normalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_normalActionPerformed
+       estilo = Font.PLAIN;
+       negrito.setSelected(false);
+       italico.setSelected(false);
+       texto.setFont(new Font("",estilo,tamanho));
+    }//GEN-LAST:event_normalActionPerformed
+
+    private void negritoitalicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_negritoitalicoActionPerformed
+       estilo = Font.ITALIC+Font.BOLD;
+       normal.setSelected(false);
+       texto.setFont(new Font("",estilo,tamanho));
+    }//GEN-LAST:event_negritoitalicoActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -318,11 +368,9 @@ public class radio extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.ButtonGroup buttonGroup2;
+    private javax.swing.JCheckBox italico;
     private javax.swing.JButton jButton1;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JCheckBox jCheckBox2;
-    private javax.swing.JCheckBox jCheckBox3;
-    private javax.swing.JCheckBox jCheckBox4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -331,6 +379,9 @@ public class radio extends javax.swing.JFrame {
     private javax.swing.JRadioButton jRadioButton3;
     private javax.swing.JRadioButton jRadioButton4;
     private javax.swing.JComboBox<String> lista;
+    private javax.swing.JCheckBox negrito;
+    private javax.swing.JCheckBox negritoitalico;
+    private javax.swing.JCheckBox normal;
     private javax.swing.JLabel rotulo;
     private javax.swing.JLabel rotulo1;
     private javax.swing.JLabel rotulo2;
